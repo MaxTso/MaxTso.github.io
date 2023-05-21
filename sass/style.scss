@@ -113,11 +113,12 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: linear-gradient(90deg, $secondary-color, $main-color);
     border-radius: 20px;
-    border: 1px solid $main-color;
+    border: 1px solid white;
     width: 90%;
     padding: 2%;
+    opacity: 0.9;
+    background: linear-gradient(90deg, $secondary-color, $main-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.30);
     @media (min-width:$desktop-media){
         width: 50%;
@@ -133,7 +134,7 @@ body {
             font-size: 50px;
         }
     }
-    p{
+    .chargement{
         font-size: 25px;
         @media (min-width:$desktop-media){
             font-size: 35px;
@@ -146,6 +147,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
+    border: 1px solid #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.30);
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 .img__loader{
     width: 50%;
