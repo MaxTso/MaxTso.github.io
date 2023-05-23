@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Shrikhand&display=swap');
-
+/**to do:**/
+/**
 /****** Variable ***********/
 $back-color: #F7F7F7;
 $main-color:#9356DC;
@@ -25,19 +26,14 @@ $tablet-media:765px;
     border: none;
     background: linear-gradient(170deg, $secondary-color, $main-color);
     color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     font-size: 16px;
     cursor: pointer;
+    transition: all 400ms ease-out;
     &:hover{
-        background: linear-gradient($main-color, $secondary-color);
+        filter: brightness(1.20);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.40);
     }
-}
-
-@mixin check_heart_effect{
-    font-weight: bold;
-    background: -webkit-linear-gradient($main-color, $secondary-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-background-clip: text;
 }
 
 @mixin welcome($number){
@@ -50,6 +46,43 @@ $tablet-media:765px;
 }
 
 /****** Keyframes ***********/
+@keyframes check_heart {
+    from {
+        font-weight: bold;
+        background-image: linear-gradient($main-color, $secondary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+        clip-path: inset(100% 0 0 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+        font-weight: bold;
+        background-image: linear-gradient($main-color, $secondary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+    }
+}
+
+@keyframes uncheck_heart {
+    from {
+        clip-path: inset(0 0 0 0);
+        font-weight: bold;
+        background-image: linear-gradient($main-color, $secondary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text
+    }
+    to {
+        font-weight: bold;
+        clip-path: inset(100% 0 0 0);
+        background-image: linear-gradient($main-color, $secondary-color);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-background-clip: text;
+    }
+}
 
 @keyframes Welcome_card {
     0% {
@@ -64,7 +97,6 @@ $tablet-media:765px;
       opacity: 1;
     }
 }
-
 
 @keyframes loader_animation{
     0%{
@@ -453,31 +485,42 @@ header{
         display: none;
         cursor: pointer;
         &:checked + .fa-heart{
-            @include check_heart_effect;
+            animation: check_heart 0.4s ease-out forwards;
+        }
+        &:not(:checked) + .fa-heart{
+            animation: uncheck_heart 0.4s ease-out ;
         }
     }
     &_note{
         display: none;
         cursor: pointer;
         &:checked + .fa-heart{
-            @include check_heart_effect;
+            animation: check_heart 0.4s ease-out forwards;
+        }
+        &:not(:checked) + .fa-heart{
+            animation: uncheck_heart 0.4s ease-out ;
         }
     }
     &_francaise{
         display: none;
         cursor: pointer;
         &:checked + .fa-heart{
-            @include check_heart_effect;
+            animation: check_heart 0.4s ease-out forwards;
+        }
+        &:not(:checked) + .fa-heart{
+            animation: uncheck_heart 0.4s ease-out ;
         }
     }
     &_delice{
         display: none;
         cursor: pointer;
         &:checked + .fa-heart{
-            @include check_heart_effect;
+            animation: check_heart 0.4s ease-out forwards;
+        }
+        &:not(:checked) + .fa-heart{
+            animation: uncheck_heart 0.4s ease-out ;
         }
     }
-    
 }
 
 /****** footer ***********/

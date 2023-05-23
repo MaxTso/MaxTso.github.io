@@ -1,8 +1,46 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Shrikhand&display=swap");
+/**to do:**/
+/**
 /****** Variable ***********/
 /****** mixin ***********/
 /****** Keyframes ***********/
+@keyframes check_heart {
+  from {
+    font-weight: bold;
+    background-image: linear-gradient(#9356DC, #FF79DA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    font-weight: bold;
+    background-image: linear-gradient(#9356DC, #FF79DA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+  }
+}
+@keyframes uncheck_heart {
+  from {
+    clip-path: inset(0 0 0 0);
+    font-weight: bold;
+    background-image: linear-gradient(#9356DC, #FF79DA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+  }
+  to {
+    font-weight: bold;
+    clip-path: inset(100% 0 0 0);
+    background-image: linear-gradient(#9356DC, #FF79DA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+  }
+}
 @keyframes Welcome_card {
   0% {
     transform: translateX(-300px);
@@ -210,14 +248,17 @@ header .header__localisation {
   border: none;
   background: linear-gradient(170deg, #FF79DA, #9356DC);
   color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   font-size: 16px;
   cursor: pointer;
+  transition: all 400ms ease-out;
   margin-bottom: 60px;
   margin-top: 15px;
   display: flex;
 }
 .intro__btn:hover {
-  background: linear-gradient(#9356DC, #FF79DA);
+  filter: brightness(1.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
 }
 .intro__btn span {
   margin: auto;
@@ -442,44 +483,40 @@ header .header__localisation {
   cursor: pointer;
 }
 #toggle_heart_palette:checked + .fa-heart {
-  font-weight: bold;
-  background: -webkit-linear-gradient(#9356DC, #FF79DA);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
+  animation: check_heart 0.4s ease-out forwards;
+}
+#toggle_heart_palette:not(:checked) + .fa-heart {
+  animation: uncheck_heart 0.4s ease-out;
 }
 #toggle_heart_note {
   display: none;
   cursor: pointer;
 }
 #toggle_heart_note:checked + .fa-heart {
-  font-weight: bold;
-  background: -webkit-linear-gradient(#9356DC, #FF79DA);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
+  animation: check_heart 0.4s ease-out forwards;
+}
+#toggle_heart_note:not(:checked) + .fa-heart {
+  animation: uncheck_heart 0.4s ease-out;
 }
 #toggle_heart_francaise {
   display: none;
   cursor: pointer;
 }
 #toggle_heart_francaise:checked + .fa-heart {
-  font-weight: bold;
-  background: -webkit-linear-gradient(#9356DC, #FF79DA);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
+  animation: check_heart 0.4s ease-out forwards;
+}
+#toggle_heart_francaise:not(:checked) + .fa-heart {
+  animation: uncheck_heart 0.4s ease-out;
 }
 #toggle_heart_delice {
   display: none;
   cursor: pointer;
 }
 #toggle_heart_delice:checked + .fa-heart {
-  font-weight: bold;
-  background: -webkit-linear-gradient(#9356DC, #FF79DA);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
+  animation: check_heart 0.4s ease-out forwards;
+}
+#toggle_heart_delice:not(:checked) + .fa-heart {
+  animation: uncheck_heart 0.4s ease-out;
 }
 
 /****** footer ***********/
@@ -739,12 +776,15 @@ footer p {
   border: none;
   background: linear-gradient(170deg, #FF79DA, #9356DC);
   color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   font-size: 16px;
   cursor: pointer;
+  transition: all 400ms ease-out;
   margin-bottom: 40px;
 }
 .order__btn:hover {
-  background: linear-gradient(#9356DC, #FF79DA);
+  filter: brightness(1.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
 }
 
 /*# sourceMappingURL=style.css.map */
