@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Shrikhand&display=swap');
 
+/****** Variable ***********/
 $back-color: #F7F7F7;
 $main-color:#9356DC;
 $secondary-color: #FF79DA ;
@@ -9,6 +10,7 @@ $description-weight: 300;
 $desktop-media:1024px;
 $tablet-media:765px;
 
+/****** mixin ***********/
 @mixin flex-center-column($align:center, $direction:column, $justify:center) {
     display: flex;
     align-items: center;
@@ -24,7 +26,6 @@ $tablet-media:765px;
     background: linear-gradient(170deg, $secondary-color, $main-color);
     color: white;
     font-size: 16px;
-    transition: 700ms ease-in-out;
     cursor: pointer;
     &:hover{
         background: linear-gradient($main-color, $secondary-color);
@@ -34,11 +35,21 @@ $tablet-media:765px;
 @mixin check_heart_effect{
     font-weight: bold;
     background: -webkit-linear-gradient($main-color, $secondary-color);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -moz-background-clip: text
+    -moz-background-clip: text;
 }
+
+@mixin welcome($number){
+    animation: Welcome_card 0.5s ease-out $number forwards;
+}
+
+@mixin marg-mobile-carte{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+/****** Keyframes ***********/
 
 @keyframes Welcome_card {
     0% {
@@ -53,9 +64,7 @@ $tablet-media:765px;
       opacity: 1;
     }
 }
-@mixin welcome($number){
-    animation: Welcome_card 0.5s ease-out $number forwards;
-}
+
 
 @keyframes loader_animation{
     0%{
@@ -78,6 +87,7 @@ $tablet-media:765px;
         visibility: hidden;
     }
 }
+/****** Général ***********/
 
 *{
     font-family: 'Roboto', sans-serif;
@@ -92,6 +102,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+/****** Loader ***********/
 .loading{
     background-color: $back-color;
     z-index: 12;
@@ -162,7 +173,7 @@ body {
         align-self: center;
     }
 }
-
+/****** Header ***********/
 header{
     width: 100%;
     display: flex;
@@ -208,7 +219,7 @@ header{
 
 }
 
-
+/****** Partie intro ***********/
 .intro__text{
     text-align: center;
     margin-left: 30px;
@@ -230,12 +241,19 @@ header{
 }
 
 .intro__btn{
+    all: unset;
     margin: auto;
     @include btn;
     margin-bottom: 60px;
     margin-top: 15px;
+    display: flex;
+    span{
+        margin: auto;
+    }
 }
 
+
+/****** Guide utilisateur ***********/
 .guiduser{
     background-color: white;
     padding-top: 40px;
@@ -328,7 +346,7 @@ header{
         }
     }
 }
-
+/****** Partie restaurant ***********/
 .restaurants{
     padding-top: 50px;
     padding-left: 20px;
@@ -462,7 +480,7 @@ header{
     
 }
 
-
+/****** footer ***********/
 footer{
     $marg-foot-content: 8px;
     background-color: #353535;
@@ -519,6 +537,7 @@ footer{
     }
 }
 
+/****** page restaurant ***********/
 .palette_carte{
     width: 100%;
     height: auto;
@@ -538,10 +557,7 @@ footer{
         }
     }
 }
-@mixin marg-mobile-carte{
-    margin-left: 2%;
-    margin-right: 2%;
-}
+
 
 .menu{
     display: flex;
@@ -705,6 +721,7 @@ footer{
         }
     }
 }
+/****** bouton page restaurant ***********/
 .order__btn{
     @include btn;
     margin-bottom: 40px;
